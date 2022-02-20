@@ -1,0 +1,61 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  nexus
+  namespace: nexus
+  labels:
+    app:  nexus
+spec:
+  selector:
+    matchLabels:
+      app: nexus
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app:  nexus
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name:  nexus
+        image:  sonatype/nexus3:3.37.3
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "1"
+            memory: 2Gi
+          limits:
+            cpu: "1"
+            memory: 4Gi
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8081
+          initialDelaySeconds: 300
+          timeoutSeconds: 25
+          successThreshold: 1
+          failureThreshold: 5
+          periodSeconds: 30
+        ports:
+        - containerPort:  8081
+          name:  nexus
+        - containerPort: 8082
+          name: docker
+        volumeMounts:
+        - name: localtime
+          mountPath: /etc/localtime
+        - name: storage
+          mountPath: /nexus-data
+      volumes:
+        - name: localtime
+          hostPath:
+            path: /usr/share/zoneinfo/America/Los_Angeles
+        - name: storage
+          persistentVolumeClaim:
+            claimName: nexus-storage
+      restartPolicy: Always
+---
