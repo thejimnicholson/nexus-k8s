@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: test-cert
+  namespace: nexus
+spec:
+  commonName: nexus.thejimnicholson.com
+  dnsNames:
+    - nexus.thejimnicholson.com
+  secretName: nexus-thejimnicholson-com
+  issuerRef:
+    name: dns-clusterissuer
+    kind: ClusterIssuer
