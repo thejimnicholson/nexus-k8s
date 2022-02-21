@@ -1,0 +1,53 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nexus-web
+  namespace: nexus
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    cert-manager.io/cluster-issuer: http-clusterissuer
+spec:
+  rules:
+    - host: nexus.thejimnicholson.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nexus
+                port: 
+                  number: 8081
+  tls:
+    - hosts:
+        - nexus.thejimnicholson.com
+      secretName: nexus-thejimnicholson-com
+---
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nexus-registry
+  namespace: nexus
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    cert-manager.io/cluster-issuer: http-clusterissuer
+spec:
+  rules:
+    - host: cr.thejimnicholson.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nexus-docker
+                port: 
+                  number: 8082
+  tls:
+    - hosts:
+        - cr.thejimnicholson.com
+      secretName: cr-thejimnicholson-com
