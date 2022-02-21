@@ -26,6 +26,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: nexus-storage
   namespace: nexus
+  annotations:
+    kustomize.toolkit.fluxcd.io/reconcile: disabled
   labels:
     app: nexus
 spec:
