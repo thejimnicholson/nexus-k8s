@@ -7,7 +7,6 @@ metadata:
   labels:
     app: nexus
 spec:
-  storageClassName: ""
   capacity:
     storage: 50Gi
   accessModes:
@@ -29,7 +28,6 @@ metadata:
   labels:
     app: nexus
 spec:
-  storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
