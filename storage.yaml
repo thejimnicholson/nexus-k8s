@@ -16,7 +16,7 @@ spec:
     - nolock
   nfs:
     server: 10.0.96.14
-    path: "/mnt/data/nfs/nexus-data"
+    path: "/mnt/data/nexus-data"
   claimRef:
     namespace: nexus
     name: nexus-storage
