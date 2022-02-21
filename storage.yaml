@@ -16,9 +16,6 @@ spec:
   nfs:
     server: 10.0.96.14
     path: "/mnt/data/nexus-data"
-  claimRef:
-    namespace: nexus
-    name: nexus-storage
 ---
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 apiVersion: v1
@@ -27,7 +24,6 @@ metadata:
   name: nexus-storage
   namespace: nexus
   annotations:
-    kustomize.toolkit.fluxcd.io/reconcile: disabled
   labels:
     app: nexus
 spec:
