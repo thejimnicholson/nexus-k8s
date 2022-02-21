@@ -7,13 +7,12 @@ metadata:
   labels:
     app: nexus
 spec:
+  storageClassName: ""
   capacity:
     storage: 50Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  mountOptions:
-    - nolock
   nfs:
     server: 10.0.96.14
     path: "/mnt/data/nexus-data"
@@ -30,9 +29,11 @@ metadata:
   labels:
     app: nexus
 spec:
+  storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 50Gi
+  volumeName: "nexus-pv"
 ---
