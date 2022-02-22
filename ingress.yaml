@@ -10,7 +10,7 @@ metadata:
     cert-manager.io/cluster-issuer: dns-clusterissuer
 spec:
   rules:
-    - host: nexus.thejimnicholson.com
+    - host: repo.thejimnicholson.com
       http:
         paths:
           - path: /
@@ -22,8 +22,8 @@ spec:
                   number: 8081
   tls:
     - hosts:
-        - nexus.thejimnicholson.com
-      secretName: nexus-thejimnicholson-com
+        - repo.thejimnicholson.com
+      secretName: repo-thejimnicholson-com
 ---
 ---
 apiVersion: networking.k8s.io/v1
@@ -37,7 +37,7 @@ metadata:
     cert-manager.io/cluster-issuer: dns-clusterissuer
 spec:
   rules:
-    - host: cr.thejimnicholson.com
+    - host: registry.thejimnicholson.com
       http:
         paths:
           - path: /
@@ -49,5 +49,5 @@ spec:
                   number: 8082
   tls:
     - hosts:
-        - cr.thejimnicholson.com
-      secretName: cr-thejimnicholson-com
+        - registry.thejimnicholson.com
+      secretName: registry-thejimnicholson-com
