@@ -22,7 +22,7 @@ spec:
         fsGroup: 1000
       containers:
       - name:  nexus
-        image:  sonatype/nexus3:3.49.0
+        image:  sonatype/nexus3:3.52.0
         imagePullPolicy: IfNotPresent
         resources:
           requests:
