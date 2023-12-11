@@ -18,11 +18,13 @@ spec:
       labels:
         app:  nexus
     spec:
-      securityContext:
-        fsGroup: 1000
+#      securityContext:
+#        fsGroup: 1000
       containers:
       - name:  nexus
-        image:  sonatype/nexus3:3.54.1
+        image:  sonatype/nexus3:3.63.0
+        # image: busybox:latest
+        # command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
         imagePullPolicy: IfNotPresent
         resources:
           requests:
@@ -53,7 +55,7 @@ spec:
       volumes:
         - name: localtime
           hostPath:
-            path: /usr/share/zoneinfo/America/Los_Angeles
+            path: /etc/zoneinfo/America/Los_Angeles
         - name: storage
           persistentVolumeClaim:
             claimName: nexus-storage

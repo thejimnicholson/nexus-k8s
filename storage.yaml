@@ -13,6 +13,8 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+  - nolock
   nfs:
     server: 10.0.96.14
     path: "/mnt/data/nexus-data"
