@@ -37,3 +37,17 @@ spec:
       storage: 50Gi
   volumeName: "nexus-pv"
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nexus-storage-nfs
+  namespace: nexus
+  labels:
+    app: nexus  
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
