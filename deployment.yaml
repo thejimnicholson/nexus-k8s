@@ -50,17 +50,12 @@ spec:
         volumeMounts:
         - name: localtime
           mountPath: /etc/localtime
-        - name: storage
-          mountPath: /nexus-data
         - name: storage-nfs
-          mountPath: /nexus-data.new          
+          mountPath: /nexus-data     
       volumes:
         - name: localtime
           hostPath:
             path: /etc/zoneinfo/America/Los_Angeles
-        - name: storage
-          persistentVolumeClaim:
-            claimName: nexus-storage
         - name: storage-nfs
           persistentVolumeClaim:
             claimName: nexus-storage-nfs
