@@ -11,7 +11,7 @@ metadata:
     gethomepage.dev/description: Repository manager 
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Tools
-    gethomepage.dev/icon: nexus.png
+    gethomepage.dev/icon: https://www.sonatype.com/hubfs/2-2023-Product%20Logos/sonatype-repo-icon.png
     gethomepage.dev/name: Nexus    
 spec:
   rules:
