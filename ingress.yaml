@@ -8,6 +8,11 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/redirect-entry-point: https
     cert-manager.io/cluster-issuer: dns-clusterissuer
+    gethomepage.dev/description: Repository manager 
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Tools
+    gethomepage.dev/icon: nexus.png
+    gethomepage.dev/name: Nexus    
 spec:
   rules:
     - host: repo.thejimnicholson.com
