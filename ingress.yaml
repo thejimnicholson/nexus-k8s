@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: nexus-web
   namespace: nexus
+  labels:
+    app: nexus
   annotations:
     kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/redirect-entry-point: https
@@ -13,7 +15,8 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Tools
     gethomepage.dev/icon: https://www.sonatype.com/hubfs/2-2023-Product%20Logos/sonatype-repo-icon.png
-    gethomepage.dev/name: Nexus    
+    gethomepage.dev/name: Nexus
+    gethomepage.dev/app: nexus
 spec:
   rules:
     - host: repo.thejimnicholson.com
@@ -30,7 +33,6 @@ spec:
     - hosts:
         - repo.thejimnicholson.com
       secretName: repo-thejimnicholson-com
----
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
