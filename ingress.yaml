@@ -11,12 +11,11 @@ metadata:
     traefik.ingress.kubernetes.io/redirect-entry-point: https
     cert-manager.io/cluster-issuer: dns-clusterissuer
     gethomepage.dev/description: Repository manager 
-    gethomepage.dev/href: https://repo.thejimnicholson.com
+    gethomepage.dev/href: https://repo.thejimnicholson.com/
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Tools
     gethomepage.dev/icon: https://www.sonatype.com/hubfs/2-2023-Product%20Logos/sonatype-repo-icon.png
     gethomepage.dev/name: Nexus
-    gethomepage.dev/app: nexus
 spec:
   rules:
     - host: repo.thejimnicholson.com
