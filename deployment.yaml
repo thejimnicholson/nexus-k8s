@@ -33,7 +33,6 @@ spec:
           limits:
             cpu: "4"
             memory: 4Gi
-            nofile: "65536"
         livenessProbe:
           httpGet:
             path: /
