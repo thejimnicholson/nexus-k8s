@@ -22,7 +22,7 @@ spec:
 #        fsGroup: 1000
       containers:
       - name:  nexus
-        image:  sonatype/3.87.1-alpine
+        image:  sonatype/nexus3:3.87.1-alpine
         # image: busybox:latest
         # command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
         imagePullPolicy: IfNotPresent
